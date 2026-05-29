@@ -3,7 +3,7 @@ local map = require("modulos.mapa")
 
 -- El tamaño real de tu modelo 3D en el espacio. 
 -- Si tu cubo mide 2x2 unidades en Blender, pon 2.0 aquí.
-local TILE_SIZE = 2.0 
+local TILE_SIZE = 1
 
 function init(self)
 	-- Recorremos las filas de la matriz (Eje X en el juego)

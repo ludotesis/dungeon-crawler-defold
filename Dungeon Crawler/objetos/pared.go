@@ -1,4 +1,4 @@
 components {
-  id: "quad_2x2"
-  component: "/assets/models/quad_2x2.model"
+  id: "cube"
+  component: "/assets/models/cube.model"
 }
