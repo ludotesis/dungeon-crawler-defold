@@ -1,0 +1,34 @@
+-- Importamos el módulo Lua que contiene la matriz (ajusta la ruta según tu proyecto)
+local map = require("modulos.mapa") 
+
+-- El tamaño real de tu modelo 3D en el espacio. 
+-- Si tu cubo mide 2x2 unidades en Blender, pon 2.0 aquí.
+local TILE_SIZE = 2.0 
+
+function init(self)
+	-- Recorremos las filas de la matriz (Eje X en el juego)
+	for x, row in ipairs(map.grid) do
+		-- Recorremos las columnas de cada fila (Eje Z en el juego)
+		for z, tile_type in ipairs(row) do
+
+			-- Calculamos la posición 3D exacta para esta casilla.
+			-- X = Desplazamiento horizontal
+			-- Y = Altura fija (0 significa que todas las paredes nacen desde el suelo)
+			-- Z = Desplazamiento en profundidad
+			local pos = vmath.vector3(x * TILE_SIZE, 0, z * TILE_SIZE)
+
+			-- Si la matriz dice que hay una pared (1)
+			if tile_type == 1 then
+				-- La fábrica clona el objeto 'wall.go' en la posición calculada
+				factory.create("#wall_factory", pos)
+
+				-- Opcional: Si es un pasillo vacío (0), podrías generar el suelo y techo
+			elseif tile_type == 0 then
+				-- Si creas una fábrica para el suelo, se vería así:
+				-- local floor_pos = vmath.vector3(x * TILE_SIZE, -TILE_SIZE / 2, z * TILE_SIZE)
+				-- factory.create("#floor_factory", floor_pos)
+			end
+
+		end
+	end
+end
