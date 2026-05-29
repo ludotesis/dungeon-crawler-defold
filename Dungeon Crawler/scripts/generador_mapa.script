@@ -20,7 +20,7 @@ function init(self)
 			-- Si la matriz dice que hay una pared (1)
 			if tile_type == 1 then
 				-- La fábrica clona el objeto 'wall.go' en la posición calculada
-				factory.create("#wall_factory", pos)
+				factory.create("#pared_factory", pos)
 
 				-- Opcional: Si es un pasillo vacío (0), podrías generar el suelo y techo
 			elseif tile_type == 0 then

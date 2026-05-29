@@ -14,6 +14,7 @@ embedded_instances {
   "}\n"
   ""
   position {
+    x: -39.0
     y: 4.0
     z: 6.0
   }
@@ -23,23 +24,16 @@ embedded_instances {
   }
 }
 embedded_instances {
-  id: "Piso"
+  id: "manejador_mapa"
   data: "components {\n"
-  "  id: \"quad\"\n"
-  "  component: \"/assets/models/quad_2x2.model\"\n"
+  "  id: \"generador_mapa\"\n"
+  "  component: \"/scripts/generador_mapa.script\"\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"pared_factory\"\n"
+  "  type: \"factory\"\n"
+  "  data: \"prototype: \\\"/objetos/pared.go\\\"\\n"
+  "\"\n"
   "}\n"
   ""
-  position {
-    y: -1.5
-    z: -1.0
-  }
-  rotation {
-    x: -0.70710677
-    w: 0.70710677
-  }
-  scale3 {
-    x: 4.0
-    y: 4.0
-    z: 4.0
-  }
 }
